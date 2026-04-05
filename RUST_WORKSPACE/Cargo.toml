@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = []
+
+[workspace.dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
+
