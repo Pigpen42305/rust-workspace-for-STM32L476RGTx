@@ -123,25 +123,18 @@ function Remove-Crate {
         throw "$target does not exist!"
     }
     
-    [string]$members = (($data = Get-Content -Path ".\Cargo.toml") -ilike "members = *")[0]
+    [string[]]$data = Get-Content -Path ".\Cargo.toml"
+    [string]$members = ($data -ilike "members = *")[0]
 
     $remove = "$_name/$(Split-Path -Path $target -Leaf)"
+    $escaped = [regex]::Escape("`"$remove`"")
 
-    # Extract list contents
-    $list = $members -replace '^\s*members\s*=\s*\[|\]\s*$', ''
+    $updated_members = $members
+    $updated_members = $updated_members -replace ",\s*$escaped", ''
+    $updated_members = $updated_members -replace "$escaped,\s*", ''
+    $updated_members = $updated_members -replace $escaped, ''
 
-    # Split elements and remove quotes
-    $items = $list -split '\s*,\s*' | ForEach-Object {
-        $_.Trim("'`"")
-    }
-
-    # Remove target
-    $items = $items | Where-Object { $_ -ne $remove }
-
-    # Rebuild the string
-    $new_members = "members = [" + (($items | ForEach-Object { "`"$_`"" }) -join ', ') + "]"
-
-    $data[$data.IndexOf($members)] = $new_members
+    $data[$data.IndexOf($members)] = $updated_members
     Set-Content -Path ".\Cargo.toml" -Value $data
 }
 
