@@ -118,40 +118,12 @@ function remove-crate {
     local cargo_toml="./Cargo.toml"
     local remove="$_name/$(basename "$target")"
 
-    local members="$(grep -i '^members[[:space:]]*=' "$cargo_toml" | head -n 1)"
-
-    local list="$(printf '%s\n' "$members" | sed -E 's/^[[:space:]]*members[[:space:]]*=[[:space:]]*\[//; s/\][[:space:]]*$//')"
-    
-    local items=()
-
-    IFS=',' read -r -a raw_items <<< "$list"
-    for item in "${raw_items[@]}"; do
-        item="${item#"${item%%[![:space:]]*}"}"
-        item="${item%"${item##*[![:space:]]}"}"
-        item="${item%\"}"
-        item="${item#\"}"
-        item="${item%\'}"
-        item="${item#\'}"
-    
-        if [[ "$item" != "$remove" && -n "$item" ]]; then
-            items+=("$item")
-        fi
-    done
-
-    local new_members='members = ['
-    local first=1
-    for item in "${items[@]}"; do
-        if (( first )); then
-            first=0
-        else
-            new_members+=', '
-        fi
-        new_members+="\"$item\""
-    done
-    new_members+=']'
-
-    awk -v new_line="$new_members" '
-        /^[[:space:]]*members[[:space:]]*=/ { print new_line; next }
+    awk -v remove="$remove" '
+        /^[[:space:]]*members[[:space:]]*=/ {
+            gsub(",[[:space:]]*\"" remove "\"", "")
+            gsub("\"" remove "\"[[:space:]]*,[[:space:]]*", "")
+            gsub("\"" remove "\"", "")
+        }
         { print }
     ' "$cargo_toml" > "$cargo_toml.tmp" && mv "$cargo_toml.tmp" "$cargo_toml"
 }
