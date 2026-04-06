@@ -12,7 +12,7 @@
 #### Windows Base Tests
 
 - [ ] `CargoHelper.ps1` should import
-- [ ] `Build-Workspace` should ***fail***
+- [ ] `Test-Workspace` should ***fail***
 - [ ] `New-BinCrate` and `New-LibCrate` should ***fail***
 
 ### Windows and `rustup`
@@ -25,7 +25,7 @@
 #### Windows and `rustup` Tests
 
 - [ ] `CargoHelper.ps1` should import
-- [ ] `Build-Workspace` should *emit errors*, but ***succeed anyway***
+- [ ] `Test-Workspace` should *emit warnings*, but ***succeed anyway***
 - [ ] `New-BinCrate` and `New-LibCrate` should ***succeed***
 - [ ] `Remove-BinCrate` and `Remove-LibCrate` should ***succeed***
 - [ ] A Rust program should compile and run successfully
@@ -44,7 +44,7 @@
 #### Windows and `rustup` and `arm-none-eabi` Tests
 
 - [ ] `CargoHelper.ps1` should import
-- [ ] `Build-Workspace` should ***succeed***
+- [ ] `Test-Workspace` should ***succeed***
 - [ ] `New-BinCrate` and `New-LibCrate` should ***succeed***
 - [ ] `Remove-BinCrate` and `Remove-LibCrate` should ***succeed***
 - [ ] A Rust program should compile and run successfully
@@ -74,7 +74,7 @@
 #### Linux Base Tests
 
 - [ ] `cargo-helper.sh` should import
-- [ ] `build-workspace` should ***fail***
+- [ ] `test-workspace` should ***fail***
 - [ ] `new-bincrate` and `new-libcrate` should ***fail***
 
 ### Linux and `rustup`
@@ -87,7 +87,7 @@
 #### Linux and `rustup` Tests
 
 - [ ] `cargo-helper.sh` should import
-- [ ] `build-workspace` should *emit errors*, but ***succeed anyway***
+- [ ] `test-workspace` should *emit warnings*, but ***succeed anyway***
 - [ ] `new-bincrate` and `new-libcrate` should ***succeed***
 - [ ] `remove-bincrate` and `remove-libcrate` should ***succeed***
 - [ ] A Rust program should compile and run successfully
@@ -106,7 +106,7 @@
 #### Linux and `rustup` and `arm-none-eabi` Tests
 
 - [ ] `cargo-helper.sh` should import
-- [ ] `build-workspace` should ***succeed***
+- [ ] `test-workspace` should ***succeed***
 - [ ] `new-bincrate` and `new-libcrate` should ***succeed***
 - [ ] `remove-bincrate` and `remove-libcrate` should ***succeed***
 - [ ] A Rust program should compile and run successfully
