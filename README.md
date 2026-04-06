@@ -38,29 +38,27 @@
 
 #### Windows and `rustup` and `arm-none-eabi` Environment
 
-- [ ] `rustup` **is** installed
-- [ ] `arm-none-eabi` **is** installed
+- [x] `rustup` **is** installed
+- [x] `arm-none-eabi` **is** installed
 
 #### Windows and `rustup` and `arm-none-eabi` Tests
 
-- [ ] `CargoHelper.ps1` should import
-- [ ] `Test-Workspace` should ***succeed***
-- [ ] `New-BinCrate` and `New-LibCrate` should ***succeed***
-- [ ] `Remove-BinCrate` and `Remove-LibCrate` should ***succeed***
-- [ ] A Rust program should compile and run successfully
+- [x] `CargoHelper.ps1` should import
+- [x] `Test-Workspace` should ***succeed***
+- [x] `New-BinCrate` and `New-LibCrate` should ***succeed***
+- [x] `Remove-BinCrate` and `Remove-LibCrate` should ***succeed***
+- [x] A Rust program should compile and run successfully
   - Rust dependencies should be added automatically
-- [ ] An Arm-Assembly program should assemble and run successfully
+- [x] An Arm-Assembly program should assemble and run successfully
   - The Assembly program should be called by Rust using Rust's `global_asm!` macro
-- [ ] `Add-Multilang.ps1` should ***succeed***
-- [ ] A Rust program should compile and run successfully
+- [x] `Add-Multilang.ps1` should ***succeed***
+- [x] A Rust program should compile and run successfully
   - Rust dependencies should be added automatically
-- [ ] An Arm-Assembly program should assemble and run successfully
+- [x] An Arm-Assembly program should assemble and run successfully
   - The Assembly program should be called by Rust using Rust's C ffi
-- [ ] A C program should compile and run successfully
+- [x] A C program should compile and run successfully
   - The C program should be called by Rust using Rust's C ffi
-- [ ] A C++ program should compile and run successfully
-  - The C++ program should be called by Rust using Rust's C ffi
-- [ ] `Remove-Multilang.ps1` should ***succeed***
+- [x] `Remove-Multilang.ps1` should ***succeed***
 
 ## Linux
 
@@ -120,6 +118,5 @@
   - The Assembly program should be called by Rust using Rust's C ffi
 - [ ] A C program should compile and run successfully
   - The C program should be called by Rust using Rust's C ffi
-- [ ] A C++ program should compile and run successfully
   - The C++ program should be called by Rust using Rust's C ffi
 - [ ] `remove-multilang.sh` should ***succeed***
