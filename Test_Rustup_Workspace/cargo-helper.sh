@@ -219,12 +219,18 @@ function connect-probe {
     cat > "$path" <<EOF
 [default.general]
 chip = "STM32L476RGTx"
+connect_under_reset = true
 
 [default.probe]
 usb_vid = "$usb_vid"
 usb_pid = "$usb_pid"
 serial = "$serial"
 protocol = "Swd"
+speed = 1800
+
+[default.reset]
+enabled = true
+halt_afterwards = true
 EOF
 }
 

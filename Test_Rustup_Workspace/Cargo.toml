@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["binaries/test-with-rust-and-asm", "binaries/test-with-rust-only", "libraries/constants"]
+members = ["binaries/test-with-rust-and-asm", "binaries/test-with-rust-and-assembled-asm", "binaries/test-with-rust-and-c", "binaries/test-with-rust-only", "libraries/constants"]
 
 [workspace.dependencies]
 cortex-m = "0.7"

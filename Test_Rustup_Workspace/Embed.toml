@@ -1,0 +1,14 @@
+[default.general]
+chip = "STM32L476RGTx"
+connect_under_reset = true
+
+[default.probe]
+usb_vid = "0483"
+usb_pid = "374b"
+serial = "066FFF555185754867124411"
+protocol = "Swd"
+speed = 1800
+
+[default.reset]
+enabled = true
+halt_afterwards = true
