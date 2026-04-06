@@ -1,0 +1,8 @@
+[workspace]
+resolver = "2"
+members = ["binaries/test-with-rust-and-asm", "binaries/test-with-rust-only", "libraries/constants"]
+
+[workspace.dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
