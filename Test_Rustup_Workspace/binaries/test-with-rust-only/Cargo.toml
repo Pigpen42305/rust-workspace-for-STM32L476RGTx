@@ -1,0 +1,11 @@
+[package]
+name = "test-with-rust-only"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+constants = { version = "0.1.0", path = "../../libraries/constants" }
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
+
